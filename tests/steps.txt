@@ -1,0 +1,32 @@
+from models.prepaidsim import PrepaidPage, RegistrationPage
+from playwright.sync_api import Page, sync_playwright
+import pytest
+
+
+
+def test_selectPrepaidSim(page: Page):
+    prepaid = PrepaidPage(page)
+    prepaid.navigate()
+    prepaid.findPrepaidSim()
+    prepaid.selectPrepaidSimKnowMore()
+    prepaid.selectPrepaidSimOrderNow()
+
+def test_selectSimNumber(page: Page):
+    sim = RegistrationPage(page)
+    sim.navigate()
+    sim.findSimNumber()
+    sim.selectSimNumber()
+
+def test_fillUpCustomerDetails(page: Page):
+    sim = RegistrationPage(page)
+    test_selectSimNumber(page)
+    sim.fillUpCustomerDetails()
+    #storage = context.storage_state(path='reg.json')
+
+
+def test_selectDeliveryMethod(page: Page):
+    test_selectSimNumber(page)
+    test_fillUpCustomerDetails(page)
+    sim = RegistrationPage(page)
+    sim.navigate()
+    sim.selectDeliveryDetails()
