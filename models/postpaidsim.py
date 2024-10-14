@@ -1,58 +1,58 @@
-#8801886325284
+#8801841254366
 #cd /d E:\VSCode\onlinesimrobi\tests
 
 from playwright.sync_api import expect
 import re
 
-class PrepaidPage:
+class PostpaidPage:
     def __init__(self, page):
         self.page = page
 
     def navigate(self):
         self.page.goto("https://onlinesim.robi.com.bd/", wait_until="load")
         
-    def findPrepaidSim(self):
+    def findPostpaidSim(self):
         expect(self.page).to_have_url("https://onlinesim.robi.com.bd/robi")
-        assert self.page.get_by_text("Get A Prepaid SIMOrder Now").is_visible()
-        expect(self.page.locator(".bg-gray-100 > a").first).to_be_visible()
-        self.page.locator(".bg-gray-100 > a").first.scroll_into_view_if_needed()
-        self.page.locator(".bg-gray-100 > a").first.hover()
-        self.page.locator(".bg-gray-100 > a").first.click()
+        expect(self.page.get_by_text("Get A Postpaid SIM")).to_be_visible()
+        expect(self.page.locator("div:nth-child(2) > .bg-gray-100 > a")).to_be_visible()
+        self.page.locator("div:nth-child(2) > .bg-gray-100 > a").click()
         
-    def selectPrepaidSimKnowMore(self):
+    def selectPostpaidSimKnowMore(self):
         expect(self.page.get_by_role("link", name=" Know More")).to_be_visible()
         self.page.get_by_role("link", name=" Know More").click()
-        expect(self.page).to_have_url("https://onlinesim.robi.com.bd/robi/newconnection/1/2227")
+        expect(self.page).to_have_url("https://onlinesim.robi.com.bd/robi/newconnection/2/3477")
 
-    def selectPrepaidSimOrderNow(self):
+    def selectPostpaidSimOrderNow(self):
+        expect(self.page.locator("div").filter(has_text=re.compile(r"^Robi Postpaid$"))).to_be_visible()
+        expect(self.page.get_by_role("cell", name="Tariff Plan")).to_be_visible()
         expect(self.page.get_by_role("button", name="Order Now")).to_be_visible()
         self.page.get_by_role("button", name="Order Now").scroll_into_view_if_needed()
         self.page.get_by_role("button", name="Order Now").click()
-        expect(self.page).to_have_url("https://onlinesim.robi.com.bd/robi/newconnection/1/2227/registration")
+        expect(self.page).to_have_url("https://onlinesim.robi.com.bd/robi/newconnection/2/3477/registration")
 
-class PreDeliveryPage:
+class PostDeliveryPage:
     def __init__(self, page):
         self.page = page
 
     def navigate(self):
-        self.page.goto("https://onlinesim.robi.com.bd/robi/newconnection/1/2227/registration", wait_until="load")
+        self.page.goto("https://onlinesim.robi.com.bd/robi/newconnection/2/3477", wait_until="load")
 
     def findSimNumber(self):
-        expect(self.page).to_have_url("https://onlinesim.robi.com.bd/robi/newconnection/1/2227/registration")
+        expect(self.page).to_have_url("https://onlinesim.robi.com.bd/robi/newconnection/2/3477/registration")
         expect(self.page.get_by_text("Choose SIM Number")).to_be_visible()
         self.page.get_by_text("Choose SIM Number").scroll_into_view_if_needed()
         expect(self.page.get_by_placeholder("XXXXXX", exact=True)).to_be_visible()
         self.page.get_by_placeholder("XXXXXX", exact=True).click()
-        self.page.get_by_placeholder("XXXXXX", exact=True).fill("329279")
+        self.page.get_by_placeholder("XXXXXX", exact=True).fill("254366")
         self.page.get_by_role("button", name="Search").click()
         expect(self.page.get_by_text("is available!")).to_be_visible()
         
     def selectSimNumber(self):
-        expect(self.page.get_by_text("8801886329279", exact=True)).to_be_visible()
-        self.page.locator("label").filter(has_text="8801886329279").click()
+        expect(self.page.locator("label").filter(has_text="8801841254366")).to_be_visible()
+        self.page.locator("label").filter(has_text="8801841254366").click()
 
     def fillUpCustomerDetails(self):
-        expect(self.page).to_have_url("https://onlinesim.robi.com.bd/robi/newconnection/1/2227/registration")
+        expect(self.page).to_have_url("https://onlinesim.robi.com.bd/robi/newconnection/2/3477/registration")
         expect(self.page.get_by_text("Customer Details")).to_be_visible()
         self.page.get_by_text("Customer Details").scroll_into_view_if_needed()
 
@@ -115,14 +115,3 @@ class PreDeliveryPage:
     def sendOTP(self):
         self.page.get_by_role("button", name="Continue").click()
         expect(self.page.get_by_text("Insert OTP")).to_be_visible()
-
-    # self.page.get_by_label("Please enter verification").click()
-    # self.page.get_by_label("Please enter verification").fill("9")
-    # self.page.get_by_label("Digit 2").fill("6")
-    # self.page.get_by_label("Digit 3").fill("2")
-    # self.page.get_by_label("Digit 4").fill("5")
-    # self.page.get_by_label("Digit 5").fill("3")
-    # self.page.get_by_label("Digit 6").fill("1")
-    # self.page.get_by_role("button", name="Validate").click()
-    # self.page.get_by_label("I have read & agreed with the").check()
-    # self.page.get_by_role("button", name="Confirm Order").click()
