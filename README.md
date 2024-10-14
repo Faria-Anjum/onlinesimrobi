@@ -1,4 +1,4 @@
-# Automation test using Playwright-pytest for onlime sim purchase
+# Automation test using Playwright-pytest for online sim purchase
 ### Navigates to https://onlinesim.robi.com.bd/robi and automates the process of purchasing a prepaid sim through home delivery
 
 Requires installation of:
