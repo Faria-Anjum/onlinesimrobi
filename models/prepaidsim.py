@@ -62,7 +62,7 @@ class RegistrationPage:
 
         expect(self.page.get_by_placeholder("01XXXXXXXXX")).to_be_visible()
         self.page.get_by_placeholder("01XXXXXXXXX").click()
-        self.page.get_by_placeholder("01XXXXXXXXX").fill("01874053247")
+        self.page.get_by_placeholder("01XXXXXXXXX").fill("01846888883")
 
         expect(self.page.get_by_placeholder("Enter Date of Birth")).to_be_visible()
         self.page.get_by_placeholder("Enter Date of Birth").click()
