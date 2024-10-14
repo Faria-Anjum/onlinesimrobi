@@ -23,6 +23,6 @@ def test_selectDeliveryMethod(page):
     sim = RegistrationPage(page)
     sim.selectDeliveryDetails()
 
-def test_sendOTP(page):
+def test_confirmDeliveryThroughOTP(page):
     sim = RegistrationPage(page)
     sim.sendOTP()
