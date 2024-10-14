@@ -1,5 +1,7 @@
-# Automation test using Playwright-pytest for onlime sim purchase
-### Navigates to https://onlinesim.robi.com.bd/robi and automates the process of purchasing a prepaid sim through home delivery
+# Automation test using Playwright-pytest for online sim purchase
+### Navigates to https://onlinesim.robi.com.bd/robi and automates features:
+- #### Purchasing prepaid sim
+- #### Purchasing postpaid sim
 
 Requires installation of:
 - python 3.12
@@ -7,10 +9,12 @@ Requires installation of:
 - pytest-xdist
 - pytest-html
 
-To run the code, navigate to onlinesimrobi/tests and run the command:
+To run the code, move to onlinesimrobi folder and run the command:
+
 ```
 pytest
 ```
 Files:
-+ /tests/pytest.ini: runs tests in msedge with added cli commands
-+ /tests/html-test-report: step by step execution of tests
++ /conftest: creates single page instance for all tests
++ /pytest.ini: runs tests in msedge with added cli commands
++ /html-test-report: step by step execution of tests
