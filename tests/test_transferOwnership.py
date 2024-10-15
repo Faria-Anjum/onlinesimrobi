@@ -1,8 +1,8 @@
-from models.onlinesimrobi import SimPage 
+from models.onlinesimrobi import RobiPage 
 from models.ownertransfer import OwnerTransferPage, OwnerTransferFormPage
 
 def test_selectTransferOwnership(page):
-    sim = SimPage(page)
+    sim = RobiPage(page)
     transfer = OwnerTransferPage(page)
     sim.navigate()
     transfer.findTransferOwnership()

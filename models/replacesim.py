@@ -3,10 +3,10 @@
 #set PWDEBUG=1
 #pytest -s
 
-from models.onlinesimrobi import SimPage, FormPage
+from models.onlinesimrobi import RobiPage, RobiFormPage
 from playwright.sync_api import expect
 
-class ReplacePage(SimPage):
+class ReplacePage(RobiPage):
     def __init__(self, page):
         self.page = page
         self.url = "https://onlinesim.robi.com.bd/robi/upgrade-sim"
@@ -17,7 +17,7 @@ class ReplacePage(SimPage):
         expect(self.page.locator("div:nth-child(5) > .bg-gray-100 > a")).to_be_visible()
         self.page.locator("div:nth-child(5) > .bg-gray-100 > a").click()
 
-class ReplaceFormPage(FormPage):
+class ReplaceFormPage(RobiFormPage):
     def __init__(self, page):
         self.page = page
         self.url = "https://onlinesim.robi.com.bd/robi/replace-sim"

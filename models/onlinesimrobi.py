@@ -1,7 +1,7 @@
 from playwright.sync_api import expect
 import re
 
-class SimPage:
+class RobiPage:
     def __init__(self, page):
         self.page = page
         self.url = "https://onlinesim.robi.com.bd/"
@@ -20,7 +20,7 @@ class SimPage:
         self.page.get_by_role("button", name="Order Now").click()
         expect(self.page).to_have_url((self.url)+'/registration')
 
-class FormPage:
+class RobiFormPage:
     def __init__(self):
         self.url = "https://onlinesim.robi.com.bd/"
         self.combo = 1

@@ -1,8 +1,8 @@
-from models.onlinesimrobi import SimPage, FormPage
+from models.onlinesimrobi import RobiPage, RobiFormPage
 from playwright.sync_api import expect
 import re
 
-class OwnerTransferPage(SimPage):
+class OwnerTransferPage(RobiPage):
     def __init__(self, page):
         self.page = page
         self.url = "https://onlinesim.robi.com.bd/robi/transfer-ownership"
@@ -13,7 +13,7 @@ class OwnerTransferPage(SimPage):
         expect(self.page.locator("div:nth-child(6) > .bg-gray-100 > a")).to_be_visible()
         self.page.locator("div:nth-child(6) > .bg-gray-100 > a").click()
 
-class OwnerTransferFormPage(FormPage):
+class OwnerTransferFormPage(RobiFormPage):
     def __init__(self, page):
         self.page = page
         self.url = "https://onlinesim.robi.com.bd/robi/transfer-ownership"

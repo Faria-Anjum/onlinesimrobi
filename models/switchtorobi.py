@@ -1,8 +1,8 @@
-from models.onlinesimrobi import SimPage, FormPage
+from models.onlinesimrobi import RobiPage, RobiFormPage
 from playwright.sync_api import expect
 import re
 
-class MNPPage(SimPage):
+class MNPPage(RobiPage):
     def __init__(self, page):
         self.page = page
         self.url = "https://onlinesim.robi.com.bd/robi/switchtorobi"
@@ -13,7 +13,7 @@ class MNPPage(SimPage):
         expect(self.page.locator("div:nth-child(4) > .bg-gray-100 > a")).to_be_visible()
         self.page.locator("div:nth-child(4) > .bg-gray-100 > a").click()
 
-class MNPFormPage(FormPage):
+class MNPFormPage(RobiFormPage):
     def __init__(self, page):
         self.page = page
         self.url = "https://onlinesim.robi.com.bd/robi/switchtorobi"

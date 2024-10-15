@@ -1,10 +1,10 @@
 #8801886325284
 #cd /d E:\VSCode\onlinesimrobi\tests
 
-from models.onlinesimrobi import SimPage, FormPage
+from models.onlinesimrobi import RobiPage, RobiFormPage
 from playwright.sync_api import expect
 
-class PrepaidPage(SimPage):
+class PrepaidPage(RobiPage):
     def __init__(self, page):
         self.page = page
         self.url = "https://onlinesim.robi.com.bd/robi/newconnection/1/2227"
@@ -13,11 +13,9 @@ class PrepaidPage(SimPage):
         expect(self.page).to_have_url("https://onlinesim.robi.com.bd/robi")
         assert self.page.get_by_text("Get A Prepaid SIM").is_visible()
         expect(self.page.locator(".bg-gray-100 > a").first).to_be_visible()
-        self.page.locator(".bg-gray-100 > a").first.scroll_into_view_if_needed()
-        self.page.locator(".bg-gray-100 > a").first.hover()
         self.page.locator(".bg-gray-100 > a").first.click()
 
-class PrepaidFormPage(FormPage):
+class PrepaidFormPage(RobiFormPage):
     def __init__(self, page):
         self.page = page
         self.url = "https://onlinesim.robi.com.bd/robi/newconnection/1/2227/registration"

@@ -1,8 +1,8 @@
-from models.onlinesimrobi import SimPage
+from models.onlinesimrobi import RobiPage
 from models.switchtorobi import MNPFormPage, MNPPage
 
 def test_selectSwitchToRobi(page):
-    sim = SimPage(page)
+    sim = RobiPage(page)
     mnp = MNPPage(page)
     sim.navigate()
     mnp.selectSwitchToRobi()

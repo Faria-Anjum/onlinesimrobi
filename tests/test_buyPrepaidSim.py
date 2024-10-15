@@ -1,8 +1,8 @@
-from models.onlinesimrobi import SimPage 
+from models.onlinesimrobi import RobiPage 
 from models.prepaidsim import PrepaidPage, PrepaidFormPage
 
 def test_selectPrepaidSim(page):
-    sim = SimPage(page)
+    sim = RobiPage(page)
     prepaid = PrepaidPage(page)
     sim.navigate()
     prepaid.findPrepaidSim()
@@ -17,7 +17,6 @@ def test_selectPrepaidSimNumber(page):
 def test_fillUpPrepaidCustomerDetails(page):
     sim = PrepaidFormPage(page)
     sim.fillUpCustomerDetails()
-    #storage = context.storage_state(path='reg.json')
 
 def test_selectPrepaidDeliveryMethod(page):
     sim = PrepaidFormPage(page)

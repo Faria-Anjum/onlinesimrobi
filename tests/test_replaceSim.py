@@ -1,8 +1,8 @@
-from models.onlinesimrobi import SimPage 
+from models.onlinesimrobi import RobiPage 
 from models.replacesim import ReplacePage, ReplaceFormPage
 
 def test_selectReplaceSim(page):
-    sim = SimPage(page)
+    sim = RobiPage(page)
     replace = ReplacePage(page)
     sim.navigate()
     replace.findReplaceSim()

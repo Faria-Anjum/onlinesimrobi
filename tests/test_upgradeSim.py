@@ -1,8 +1,8 @@
-from models.onlinesimrobi import SimPage 
+from models.onlinesimrobi import RobiPage 
 from models.upgradesim import UpgradePage, UpgradeFormPage
 
 def test_selectUpgradeSim(page):
-    sim = SimPage(page)
+    sim = RobiPage(page)
     upgrade = UpgradePage(page)
     sim.navigate()
     upgrade.findUpgradeSim()

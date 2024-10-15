@@ -1,10 +1,10 @@
 #01841254366
 
-from models.onlinesimrobi import SimPage
+from models.onlinesimrobi import RobiPage
 from models.postpaidsim import PostpaidFormPage, PostpaidPage
 
 def test_selectPostpaidSim(page):
-    sim = SimPage(page)
+    sim = RobiPage(page)
     postpaid = PostpaidPage(page)
     sim.navigate()
     postpaid.findPostpaidSim()
