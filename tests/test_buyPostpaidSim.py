@@ -11,21 +11,21 @@ def test_selectPostpaidSim(page):
     postpaid.selectSimKnowMore()
     postpaid.selectSimOrderNow()
 
-def test_selectSimNumber(page):
+def test_selectPostpaidSimNumber(page):
     sim = PostpaidFormPage(page)
     sim.findSimNumber()
     sim.selectSimNumber()
 
-def test_fillUpCustomerDetails(page):
+def test_fillUpPostpaidCustomerDetails(page):
     sim = PostpaidFormPage(page)
     sim.fillUpCustomerDetails()
     #storage = context.storage_state(path='reg.json')
 
-def test_selectDeliveryMethod(page):
+def test_selectPostpaidDeliveryMethod(page):
     sim = PostpaidFormPage(page)
-    sim.selectDeliveryDetails()
+    sim.selectHomeDelivery()
 
-def test_confirmDeliveryThroughOTP(page):
+def test_confirmPostpaidThroughOTP(page):
     sim = PostpaidFormPage(page)
     sim.sendOTP()
 

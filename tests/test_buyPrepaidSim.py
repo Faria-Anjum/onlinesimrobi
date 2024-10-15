@@ -9,20 +9,20 @@ def test_selectPrepaidSim(page):
     prepaid.selectSimKnowMore()
     prepaid.selectSimOrderNow()
 
-def test_selectSimNumber(page):
+def test_selectPrepaidSimNumber(page):
     sim = PrepaidFormPage(page)
     sim.findSimNumber()
     sim.selectSimNumber()
 
-def test_fillUpCustomerDetails(page):
+def test_fillUpPrepaidCustomerDetails(page):
     sim = PrepaidFormPage(page)
     sim.fillUpCustomerDetails()
     #storage = context.storage_state(path='reg.json')
 
-def test_selectDeliveryMethod(page):
+def test_selectPrepaidDeliveryMethod(page):
     sim = PrepaidFormPage(page)
-    sim.selectDeliveryDetails()
+    sim.selectHomeDelivery()
 
-def test_confirmDeliveryThroughOTP(page):
+def test_confirmPrepaidThroughOTP(page):
     sim = PrepaidFormPage(page)
     sim.sendOTP()

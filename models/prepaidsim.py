@@ -22,7 +22,7 @@ class PrepaidFormPage(FormPage):
         self.page = page
         self.url = "https://onlinesim.robi.com.bd/robi/newconnection/1/2227/registration"
         self.number = "329279"
-        self.delivery = "Home Delivery"
+        self.combo = 1
         
     def selectSimNumber(self):
         expect(self.page.get_by_text("8801886329279", exact=True)).to_be_visible()

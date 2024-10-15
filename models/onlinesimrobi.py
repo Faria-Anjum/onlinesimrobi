@@ -23,6 +23,7 @@ class SimPage:
 class FormPage:
     def __init__(self):
         self.url = "https://onlinesim.robi.com.bd/"
+        self.combo = 1
 
     def findSimNumber(self):
         expect(self.page).to_have_url(self.url)
@@ -50,12 +51,14 @@ class FormPage:
         expect(self.page.get_by_placeholder("Enter Date of Birth")).to_be_visible()
         self.page.get_by_placeholder("Enter Date of Birth").click()
 
-        expect(self.page.get_by_role("combobox").nth(1)).to_be_visible()
-        self.page.get_by_role("combobox").nth(1).select_option("1988")
-        self.page.get_by_label("Choose Thursday, October 13th,").click()
+        self.page.get_by_placeholder("Enter Date of Birth").click()
+        self.page.get_by_role("combobox").nth(self.combo).select_option("1999")
+        self.page.locator("div").filter(has_text=re.compile(r"^JanuaryFebruaryMarchAprilMayJuneJulyAugustSeptemberOctoberNovemberDecember$")).get_by_role("combobox").select_option("2")
+        self.page.get_by_label("Choose Monday, March 22nd,").click()
 
-        expect(self.page.locator("div").filter(has_text=re.compile(r"^Select Gender$")).nth(3)).to_be_visible()
-        self.page.locator("div").filter(has_text=re.compile(r"^Select Gender$")).nth(3).click()
+        expect(self.page.get_by_text("Select Gender")).to_be_visible()
+        #expect(self.page.locator("div").filter(has_text=re.compile(r"^Select Gender$")).nth(3)).to_be_visible()
+        self.page.get_by_text("Select Gender").click()
         self.page.get_by_role("option", name="Female").click()
 
         expect(self.page.get_by_placeholder("Enter NID Number")).to_be_visible()
@@ -64,7 +67,7 @@ class FormPage:
 
         expect(self.page.locator("div").filter(has_text=re.compile(r"^Select District$")).nth(2)).to_be_visible()
         self.page.locator("div").filter(has_text=re.compile(r"^Select District$")).nth(2).click()
-        self.page.locator("#react-select-3-input").fill("D")
+        #self.page.locator("#react-select-3-input").fill("D")
         expect(self.page.get_by_role("option", name="Dhaka")).to_be_visible()
         self.page.get_by_role("option", name="Dhaka").click()
 
@@ -83,17 +86,22 @@ class FormPage:
         self.page.locator("div").filter(has_text=re.compile(r"^Select Post Code$")).nth(1).click()
         self.page.get_by_role("option", name="1216").click()
 
-    def selectDeliveryDetails(self):
+    def selectHomeDelivery(self):
         expect(self.page.get_by_text("Delivery Method")).to_be_visible()
-        expect(self.page.locator("label").filter(has_text=self.delivery)).to_be_visible()
+        expect(self.page.locator("label").filter(has_text="Home Delivery")).to_be_visible()
 
-        self.page.locator("label").filter(has_text=self.delivery).click()
+        self.page.locator("label").filter(has_text="Home Delivery").click()
 
         self.page.get_by_placeholder("Select Date").click()
-        self.page.get_by_label("Choose Tuesday, October 15th,").click()
+        self.page.get_by_label("Choose Sunday, October 20th,").click()
 
         self.page.get_by_placeholder("Time").click()
         self.page.get_by_role("option", name="11:00").click()
+
+    def selectPickupWIC(self):
+        expect(self.page.get_by_text("Delivery Method")).to_be_visible()
+        expect(self.page.locator("label").filter(has_text="Pickup from Nearest WIC")).to_be_visible()
+        self.page.locator("label").filter(has_text="Pickup from Nearest WIC").click()
 
     def sendOTP(self):
         self.page.get_by_role("button", name="Continue").click()

@@ -1,5 +1,7 @@
 #8801841254366
 #cd /d E:\VSCode\onlinesimrobi\tests
+#set PWDEBUG=1
+#pytest -s
 
 from models.onlinesimrobi import SimPage, FormPage
 from playwright.sync_api import expect
@@ -20,7 +22,7 @@ class UpgradeFormPage(FormPage):
     def __init__(self, page):
         self.page = page
         self.url = "https://onlinesim.robi.com.bd/robi/upgrade-sim"
-        self.delivery = "Pickup from Nearest WIC"
+        self.combo = 1
         
     def selectSimDetails(self):
         expect(self.page.get_by_text("SIM Details")).to_be_visible()
@@ -28,11 +30,6 @@ class UpgradeFormPage(FormPage):
         self.page.get_by_placeholder("Number You Want To Upgrade").click()
         self.page.get_by_placeholder("Number You Want To Upgrade").fill("01846888883")
 
-    def selectDeliveryDetails(self):
-        expect(self.page.get_by_text("Delivery Method")).to_be_visible()
-        expect(self.page.locator("label").filter(has_text=self.delivery)).to_be_visible()
-
-        self.page.locator("label").filter(has_text=self.delivery).click()
 
 #     expect(page.get_by_text("Customer Details")).to_be_visible()
 #     page.get_by_placeholder("Enter Full Name").click()

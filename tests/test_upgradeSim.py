@@ -7,18 +7,18 @@ def test_selectUpgradeSim(page):
     sim.navigate()
     upgrade.findUpgradeSim()
 
-def test_selectSimDetails(page):
+def test_selectUpgradeSimDetails(page):
     sim = UpgradeFormPage(page)
     sim.selectSimDetails()
 
-def test_fillUpCustomerDetails(page):
+def test_fillUpUpgradeCustomerDetails(page):
     sim = UpgradeFormPage(page)
     sim.fillUpCustomerDetails()
 
-def test_selectDeliveryMethod(page):
+def test_selectUpgradeDeliveryMethod(page):
     sim = UpgradeFormPage(page)
-    sim.selectDeliveryDetails()
+    sim.selectPickupWIC()
 
-def test_confirmDeliveryThroughOTP(page):
+def test_confirmUpgradeThroughOTP(page):
     sim = UpgradeFormPage(page)
     sim.sendOTP()

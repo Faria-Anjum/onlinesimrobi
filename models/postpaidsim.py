@@ -23,7 +23,7 @@ class PostpaidFormPage(FormPage):
         self.page = page
         self.url = "https://onlinesim.robi.com.bd/robi/newconnection/2/3477/registration"
         self.number = "254366"
-        self.delivery = "Home Delivery"
+        self.combo = 1
 
     # def selectSimOrderNow(self):
     #     expect(self.page.locator("div").filter(has_text=re.compile(r"^Robi Postpaid$"))).to_be_visible()
