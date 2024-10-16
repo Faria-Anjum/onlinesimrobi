@@ -1,11 +1,16 @@
 # Automated testing on scopes of onlinesim.robi.com.bd using Playwright-pytest
 ### Navigates to https://onlinesim.robi.com.bd/robi and performs automated tests on:
 - Purchasing prepaid Robi SIM
+- Purchasing prepaid Airtel SIM
 - Purchasing postpaid Robi SIM
 - Upgrading Robi SIM to 4.5G
+- Upgrading Airtel SIM to 4.5G
 - Switching service provider to Robi
+- Switching service provider to Airtel
 - Replacing Robi SIM
+- Replacing Airtel SIM
 - Transferring ownership of Robi SIM
+- Transferring ownership of Airtel SIM
 
 Requires installation of:
 - python 3.12
