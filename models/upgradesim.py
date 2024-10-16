@@ -3,11 +3,11 @@
 #set PWDEBUG=1
 #pytest -s
 
-from models.onlinesimrobi import RobiPage, RobiFormPage
+from models.onlinesimrobi import RobiPage, AirtelPage, RobiFormPage
 from playwright.sync_api import expect
 import re
 
-class UpgradePage(RobiPage):
+class UpgradeRobiPage(RobiPage):
     def __init__(self, page):
         self.page = page
         self.url = "https://onlinesim.robi.com.bd/robi/upgrade-sim"
@@ -18,17 +18,28 @@ class UpgradePage(RobiPage):
         expect(self.page.locator("div:nth-child(3) > .bg-gray-100 > a")).to_be_visible()
         self.page.locator("div:nth-child(3) > .bg-gray-100 > a").click()
 
-class UpgradeFormPage(RobiFormPage):
+class UpgradeRobiFormPage(RobiFormPage):
     def __init__(self, page):
         self.page = page
         self.url = "https://onlinesim.robi.com.bd/robi/upgrade-sim"
         self.combo = 1
+
+class UpgradeAirtelPage(AirtelPage):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://onlinesim.robi.com.bd/airtel/upgrade-sim"
         
-    def selectSimDetails(self):
-        expect(self.page.get_by_text("SIM Details")).to_be_visible()
-        expect(self.page.get_by_placeholder("Number You Want To Upgrade")).to_be_visible()
-        self.page.get_by_placeholder("Number You Want To Upgrade").click()
-        self.page.get_by_placeholder("Number You Want To Upgrade").fill("01846888883")
+    def findUpgradeSim(self):
+        expect(self.page).to_have_url("https://onlinesim.robi.com.bd/airtel")
+        expect(self.page.get_by_text("Upgrade to 4.5G")).to_be_visible()
+        expect(self.page.get_by_role("link", name="Order Now ").nth(1)).to_be_visible()
+        self.page.get_by_role("link", name="Order Now ").nth(1).click()
+
+class UpgradeAirtelFormPage(RobiFormPage):
+    def __init__(self, page):
+        self.page = page
+        self.url = "https://onlinesim.robi.com.bd/airtel/upgrade-sim"
+        self.combo = 1
 
 
 #     expect(page.get_by_text("Customer Details")).to_be_visible()

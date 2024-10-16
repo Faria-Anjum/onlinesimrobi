@@ -1,24 +1,23 @@
-from models.onlinesimrobi import RobiPage
-from models.switchtorobi import MNPFormPage, MNPPage
+from models.switchprovider import RobiPage, RobiMNPFormPage, RobiMNPPage
 
 def test_selectSwitchToRobi(page):
-    sim = RobiPage(page)
-    mnp = MNPPage(page)
-    sim.navigate()
+    robi = RobiPage(page)
+    mnp = RobiMNPPage(page)
+    robi.navigate()
     mnp.selectSwitchToRobi()
 
-def test_fillUpMNPConnectionDetails(page):
-    mnp = MNPFormPage(page)
-    mnp.fillConnectionDetails()
+def test_fillUpRobiMNPConnectionDetails(page):
+    form = RobiMNPFormPage(page)
+    form.fillMNPConnectionDetails()
 
-def test_fillUpMNPCustomerDetails(page):
-    mnp = MNPFormPage(page)
-    mnp.fillUpCustomerDetails()
+def test_fillUpRobiMNPCustomerDetails(page):
+    form = RobiMNPFormPage(page)
+    form.fillUpCustomerDetails()
 
-def test_selectMNPDeliveryMethod(page):
-    mnp = MNPFormPage(page)
-    mnp.selectHomeDelivery()
+def test_selectRobiMNPDeliveryMethod(page):
+    form = RobiMNPFormPage(page)
+    form.selectHomeDelivery()
 
-def test_confirmMNPThroughOTP(page):
-    mnp = MNPFormPage(page)
-    mnp.sendOTP()
+def test_confirmRobiMNPThroughOTP(page):
+    form = RobiMNPFormPage(page)
+    form.sendOTP()
