@@ -3,11 +3,11 @@
 #set PWDEBUG=1
 #pytest -s
 
-from models.onlinesimrobi import SimPage, FormPage
+from models.onlinesimrobi import RobiPage, RobiFormPage
 from playwright.sync_api import expect
 import re
 
-class PostpaidPage(SimPage):
+class PostpaidPage(RobiPage):
     def __init__(self, page):
         self.page = page
         self.url = "https://onlinesim.robi.com.bd/robi/newconnection/2/3477"
@@ -18,7 +18,7 @@ class PostpaidPage(SimPage):
         expect(self.page.locator("div:nth-child(2) > .bg-gray-100 > a")).to_be_visible()
         self.page.locator("div:nth-child(2) > .bg-gray-100 > a").click()
 
-class PostpaidFormPage(FormPage):
+class PostpaidFormPage(RobiFormPage):
     def __init__(self, page):
         self.page = page
         self.url = "https://onlinesim.robi.com.bd/robi/newconnection/2/3477/registration"
@@ -28,7 +28,7 @@ class PostpaidFormPage(FormPage):
     # def selectSimOrderNow(self):
     #     expect(self.page.locator("div").filter(has_text=re.compile(r"^Robi Postpaid$"))).to_be_visible()
     #     expect(self.page.get_by_role("cell", name="Tariff Plan")).to_be_visible()
-    #     FormPage.selectSimOrderNow()
+    #     RobiFormPage.selectSimOrderNow()
 
     def selectSimNumber(self):
         expect(self.page.locator("label").filter(has_text="8801841254366")).to_be_visible()
