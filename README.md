@@ -1,5 +1,5 @@
 # Automated testing on scopes of onlinesim.robi.com.bd using Playwright-pytest
-### Navigates to https://onlinesim.robi.com.bd/robi and performs automated tests on:
+### Navigates to https://onlinesim.robi.com.bd and performs automated tests on:
 - Purchasing prepaid Robi SIM
 - Purchasing prepaid Airtel SIM
 - Purchasing postpaid Robi SIM
