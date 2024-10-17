@@ -1,7 +1,7 @@
 # Automated testing on scopes of the Robi DA website (onlinesim.robi.com.bd) using pytest-playwright
 ### Navigates to https://onlinesim.robi.com.bd and performs:
 
-+ testcase validations on:
++ Testcase validations on:
   - Purchasing prepaid Robi SIM
   - Purchasing prepaid Airtel SIM
   - Purchasing postpaid Robi SIM
