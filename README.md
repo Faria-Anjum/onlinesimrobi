@@ -1,4 +1,4 @@
-# Automated testing on scopes of onlinesim.robi.com.bd using Playwright-pytest
+# Automated testing on scopes of the Robi DA website (onlinesim.robi.com.bd) using Playwright-pytest
 ### Navigates to https://onlinesim.robi.com.bd and performs:
 
 + Case-defined tests on:
@@ -22,11 +22,12 @@ Requires installation of:
 - pytest-xdist
 - pytest-html
 
-To run the code, move to onlinesimrobi folder and run the command:
+To run tests, move to onlinesimrobi folder and run the command:
 
 ```
 pytest
 ```
+
 Config files:
 + /conftest: creates single page instance for all test functions
 + /pytest.ini: runs tests in msedge with added cli commands
