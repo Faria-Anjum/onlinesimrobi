@@ -91,7 +91,7 @@ class PrepaidPage:
 
     def type_msisdn(self, number):
         expect(self.page).to_have_url(self.url)
-        assert self.page.get_by_text("Choose SIM Number").is_visible()
+        expect(self.page.get_by_text("Choose SIM Number")).to_be_visible()
         assert self.page.get_by_placeholder("XXXXXX", exact=True).is_visible()
         self.page.get_by_placeholder("XXXXXX", exact=True).click()
         self.page.get_by_placeholder("XXXXXX", exact=True).fill(number)
@@ -203,7 +203,7 @@ class ATPrepaidPage(PrepaidPage):
         self.number = "567422"
         self.wrongNumber = "254444"
 
-    def postpaid_select_available_number(self):
+    def prepaid_select_available_number(self):
         expect(self.page.locator("label").filter(has_text="8801601567422")).to_be_visible()
         self.page.locator("label").filter(has_text="8801601567422").click()
 

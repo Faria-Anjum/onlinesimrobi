@@ -17,7 +17,7 @@ def test_prepaid_show_available(page):
     prepaid.available_number()
 
 def test_prepaid_show_unavailable(page):
-    '''Unvalilable valid robi prepaid msisdn shows unavailable message'''
+    '''Unavailable valid robi prepaid msisdn shows unavailable message'''
     prepaid = PrepaidPage(page)
     prepaid.type_msisdn(prepaid.wrongNumber)
     prepaid.unavailable_number()

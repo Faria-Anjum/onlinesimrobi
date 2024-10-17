@@ -15,7 +15,7 @@ def test_atprepaid_visibility(page):
     atprepaid = ATPrepaidInfoPage(page)
     atprepaid.prepaid_visibility()
 
-def test_prepaid_check_know_details(page):
+def test_atprepaid_check_know_details(page):
     '''AT prepaid sim>>know details option is accessible and visible'''
     home = HomePage(page)
     home.navigate()

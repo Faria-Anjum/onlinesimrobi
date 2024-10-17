@@ -19,7 +19,7 @@ def test_postpaid_show_available(page):
     postpaid.available_number()
 
 def test_postpaid_show_unavailable(page):
-    '''Unvalilable valid robi postpaid msisdn shows unavailable message'''
+    '''Unavailable valid robi postpaid msisdn shows unavailable message'''
     postpaid = PostpaidPage(page)
     postpaid.type_msisdn(postpaid.wrongNumber)
     postpaid.unavailable_number()
