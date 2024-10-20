@@ -6,7 +6,7 @@
   - Purchasing prepaid Airtel SIM
   - Purchasing postpaid Robi SIM
     
-+ Acceptance tests on:
++ End-to-end tests on:
   - Upgrading Robi SIM to 4.5G
   - Upgrading Airtel SIM to 4.5G
   - Switching service provider to Robi
