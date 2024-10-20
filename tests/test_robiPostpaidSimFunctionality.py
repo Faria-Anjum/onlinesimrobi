@@ -1,6 +1,6 @@
 #01841254366
 
-from models.productionda import HomePage, PostpaidInfoPage, PostpaidPage
+from models.da_tests import HomePage, PostpaidInfoPage, PostpaidPage
 import pytest
 
 def test_postpaid_type_number(page):

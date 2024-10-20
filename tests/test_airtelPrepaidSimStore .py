@@ -1,4 +1,4 @@
-from models.productionda import ATPrepaidPage
+from models.da_tests import ATPrepaidPage
 
 def test_select_atprepaid_store(page):
     '''Proceed with nearest store for at prepaid checkout'''

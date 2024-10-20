@@ -1,4 +1,4 @@
-from models.productionda import PrepaidPage
+from models.da_tests import PrepaidPage
 
 def test_select_prepaid_wic(page):
     '''Proceed with nearest wic for robi prepaid checkout'''

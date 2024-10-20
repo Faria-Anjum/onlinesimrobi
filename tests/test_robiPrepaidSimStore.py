@@ -1,4 +1,4 @@
-from models.productionda import PostpaidPage
+from models.da_tests import PostpaidPage
 
 def test_select_postpaid_store(page):
     '''Checkout with nearest store inserting all valid data'''
