@@ -1,4 +1,4 @@
-from models.onlinesimrobi import RobiPage, AirtelPage, RobiFormPage
+from models.main import RobiPage, AirtelPage, RobiFormPage
 from playwright.sync_api import expect
 import re
 

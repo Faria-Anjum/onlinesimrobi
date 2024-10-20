@@ -1,4 +1,4 @@
-from models.productionda import HomePage, PrepaidInfoPage, PrepaidPage
+from models.da_tests import HomePage, PrepaidInfoPage, PrepaidPage
 import pytest
 
 def test_prepaid_type_number(page):

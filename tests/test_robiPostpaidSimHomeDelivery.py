@@ -1,4 +1,4 @@
-from models.productionda import PostpaidPage
+from models.da_tests import PostpaidPage
 
 def test_select_postpaid_home_delivery(page):
     '''Proceed with home delivery for robi postpaid checkout'''
